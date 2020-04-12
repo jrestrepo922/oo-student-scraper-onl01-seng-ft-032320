@@ -29,6 +29,3 @@ class Scraper
   end
 
 end
-
-
-
