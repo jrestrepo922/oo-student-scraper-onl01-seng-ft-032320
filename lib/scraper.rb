@@ -31,6 +31,7 @@ class Scraper
     student_profile[:blog] = social_icon_container[3].attribute("href").value
     student_profile[:profile_quote] = index.css("div.profile-quote").text
     student_profile[:bio] = index.css("div.description-holder p").text
+    student_profile
     binding.pry
   end
 
