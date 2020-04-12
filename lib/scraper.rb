@@ -24,10 +24,11 @@ class Scraper
     html = open(profile_url)
     index = Nokogiri::HTML(html)
     student_profile = {}
+    social_icon_container = index.css("div.social-icon-container a")
     binding.pry
   end
 
 end
 
 
-\
+
