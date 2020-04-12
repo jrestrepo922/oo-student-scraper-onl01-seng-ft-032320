@@ -26,8 +26,14 @@ class Scraper
     student_profile = {}
 
     profile.css("div.main-wrapper.profile .social-icon-container a").each { |social|
-      binding.pry
-      student_profile = social.attribute("href").value # iterating over the socials container. getting the twitter url. going to need if statemnts or all i put here will trigger several times base on social links
+      if social.attribute("href").value.include?("twitter")
+        student_profile[:twitter] = social.attribute("href").value # iterating over the socials container. getting the twitter url. going to need if statemnts or all i put here will trigger several times base on social links
+      elsif  social.attribute("href").value.include?("linkedin")
+        sstudent_profile[:linkedin] = social.attribute("href").value
+      elsif social.attribute("href").value.include?("github")
+        student_profile[:github] = social.attribute("href").value
+      else
+        student_profile[:blog] = social.attribute("href").value
     }
 
 
