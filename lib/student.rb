@@ -24,10 +24,11 @@ class Student
 
     attributes_hash.each { |key, value| self.send(("#{key}="), value)}
     self
-    binding.pry
+
   end
 
   def self.all
     @@all
+    binding.pry
   end
 end
