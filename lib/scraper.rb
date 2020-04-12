@@ -37,8 +37,8 @@ class Scraper
       end
     }
 
-    student_profile[:profile_quote] = index.css("div.profile-quote").text
-    student_profile[:bio] = index.css("div.description-holder p").text
+    student_profile[:profile_quote] = profile.css("div.profile-quote").text
+    student_profile[:bio] = profile.css("div.description-holder p").text
     student_profile
     binding.pry
   end
