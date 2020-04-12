@@ -22,17 +22,25 @@ class Scraper
 
   def self.scrape_profile_page(profile_url)
     html = open(profile_url)
-    index = Nokogiri::HTML(html)
+    profile = Nokogiri::HTML(html)
     student_profile = {}
-    social_icon_container = index.css("div.social-icon-container a")
-    student_profile[:twitter] = social_icon_container[0].attribute("href").value
-    student_profile[:linkedin] = social_icon_container[1].attribute("href").value
-    student_profile[:github] = social_icon_container[2].attribute("href").value
-    student_profile[:blog] = social_icon_container[3].attribute("href").value
-    student_profile[:profile_quote] = index.css("div.profile-quote").text
-    student_profile[:bio] = index.css("div.description-holder p").text
-    student_profile
-    #binding.pry
+
+    profile.css("div.main-wrapper.profile .social-icon-container a").each do |social|
+      binding.pry
+      student_profile = social.attribute("href").value # iterating over the socials container. getting the twitter url. going to need if statemnts or all i put here will trigger several times base on social links
+    }
+
+
+
+
+    # student_profile[:twitter] = social_icon_container[0].attribute("href").value
+    # student_profile[:linkedin] = social_icon_container[1].attribute("href").value
+    # student_profile[:github] = social_icon_container[2].attribute("href").value
+    # student_profile[:blog] = social_icon_container[3].attribute("href").value
+    # student_profile[:profile_quote] = index.css("div.profile-quote").text
+    # student_profile[:bio] = index.css("div.description-holder p").text
+    # student_profile
+    # #binding.pry
   end
 
 end
