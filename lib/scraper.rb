@@ -25,7 +25,7 @@ class Scraper
     profile = Nokogiri::HTML(html)
     student_profile = {}
 
-    profile.css("div.main-wrapper.profile .social-icon-container a").each do |social|
+    profile.css("div.main-wrapper.profile .social-icon-container a").each { |social|
       binding.pry
       student_profile = social.attribute("href").value # iterating over the socials container. getting the twitter url. going to need if statemnts or all i put here will trigger several times base on social links
     }
