@@ -7,7 +7,7 @@ class Scraper
     students = []
     html = open(index_url)
     index = Nokogiri::HTML(html)
-    index.css("div.student-card").each do |student|
+    index.css("div.student-card").each do |student| # you got to find a css selector that contains all the studens and will iterate through all of one student information a scrape what we want
       student_details = {}
       student_details[:name] = student.css("h4.student-name").text
       student_details[:location] = student.css("p.student-location").text
